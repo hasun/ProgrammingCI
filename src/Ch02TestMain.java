@@ -26,6 +26,8 @@ public class Ch02TestMain {
 //            ranking.getRecommendation(personalRate ,"Toby",pearsonCorrelation );
 
             ranking.topMatches(personalRate ,"Toby" ,3 ,pearsonCorrelation);
+            
+            System.out.println(data.transformData(personalRate));
         }
 
 }
