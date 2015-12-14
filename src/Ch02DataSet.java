@@ -94,4 +94,24 @@ public class Ch02DataSet {
         return personalRate;
 //            this.personalRate = personalRate;
     }
+    
+     public Map<String, Map<String, Double>> transformData (Map<String, Map<String, Double>> data ) {
+//    def transformPrefs(prefs):
+//    result={}
+//    for person in prefs:
+//            for item in prefs[person]:
+//            result.setdefault(item,{})
+//            # Flip item and person
+//    result[item][person]=prefs[person][item]
+//            return result
+        Map<String, Map<String, Double>> result = new HashMap <String, Map<String, Double>>();
+        Map<String, Double> inner = new HashMap <String, Double>();
+        for (Map.Entry<String, Map<String, Double>> person  : data.entrySet()){
+            for ( Map.Entry<String,Double> item : person.getValue().entrySet()) {
+                inner.put(person.getKey() , item.getValue());
+                result.put(item.getKey(),inner);
+            }
+        }
+        return result;
+    }
 }
